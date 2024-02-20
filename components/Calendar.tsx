@@ -72,9 +72,19 @@ const Calendar: React.FC<{
 }> = ({ events, weekstart, weekend, dateSelected }) => {
   const today = new Date();
   const [x, setX] = useState<Date>(today);
+  const [i, setI] = useState("");
 
   const dateChanged = (date: Date) => {
     setX(date);
+  };
+  const dateDetails = (date: Date) => {
+    console.log(events);
+    console.log(date);
+    const d = events?.find((item)=>item.date.getDate() === date.getDate() 
+      && item.date.getMonth() === date.getMonth() 
+      && item.date.getFullYear() === date.getFullYear())
+    console.log(d);
+    setI(d?.description||'');
   };
 
   return (
@@ -83,7 +93,7 @@ const Calendar: React.FC<{
       <Navigate date={x} navigate={dateChanged}></Navigate>
       <Weekday></Weekday>
       <Days date={x} />
-      <Footer />
+      <Footer information=""/>
     </div>
   );
 };
@@ -121,8 +131,8 @@ const Day: React.FC<{ date: Date; current: boolean }> = ({ date, current }) => {
   );
 };
 
-const Footer: React.FC = () => {
-  return <div>Footer</div>;
+const Footer: React.FC<{ information: string }> = ({ information }) => {
+  return <div>{information}</div>;
 };
 
 export default Calendar;

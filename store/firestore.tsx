@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "./firebaseConfig";
-import { getDatabase, ref, set, push, onValue } from "firebase/database";
+import { getDatabase, ref, set, push, onValue, child, get, DataSnapshot } from "firebase/database";
 import { Observable, observable } from "rxjs";
 import {
   getAuth,
@@ -46,6 +46,9 @@ export const update = async (storeUrl: string, data: any): Promise<string> => {
   }
 };
 
+export const read = async (storeUrl: string): Promise<DataSnapshot> => {
+  return get(child(ref(database), storeUrl));
+};
 // const Home = () => {
 //   const starCountRef = ref(database, "users/");
 //   const [users, setUsers] = useState("null");
