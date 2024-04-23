@@ -39,11 +39,11 @@ const WeekView: React.FC<Props> = ({handleDateChange}) => {
   return (
     <div>
       <h2>Week View</h2>
-      <div className="flex bg-blue-950/90 dark:bg-teal-600">
+      <div className="flex bg-blue-700/50 font-thick  ">
         <div className="flex-none">
           <Button onClick={goToPreviousWeek}>{"<"}</Button>
         </div>
-        <div className="grow content-center text-center text-white">
+        <div className="grow content-center text-center text-Black font-bold">
           <span>{formatWeekRange()}</span>
         </div>
         <div className="flex-none">

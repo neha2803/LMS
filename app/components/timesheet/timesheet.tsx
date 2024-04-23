@@ -1,6 +1,7 @@
 import { useState } from "react";
 import WeekView from "./Weekview";
 import LogTime from "./logtime";
+
  
 const TimeSheet = ()=>{
   const getStartOfWeek = (date: Date) => {
@@ -17,7 +18,8 @@ setCurrentDate(newCurrentDate)
  
 return <>
 <WeekView handleDateChange = {handleDateChange}/>
-<LogTime currentWeek={currentDate} />
+{/* <LogTime currentWeek={currentDate} /> */}
+<LogTime currentWeek={currentDate}></LogTime>
 </>
 }
  
